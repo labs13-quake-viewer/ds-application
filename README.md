@@ -1,26 +1,17 @@
-🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline. Feel free to add your own flare to it.
-
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
-
-🚫 Each student has a required minimum number of meaningful PRs each week per the rubric.  Contributing to docs does NOT count as a PR to meet your weekly requirements.
-
 # 1️⃣ Quake Viewer
 
-You can find the project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+You can find the project at [animearthquakes.herokuapp.com](https://animearthquakes.herokuapp.com/).
 
 ## 5️⃣ Contributors
 
 🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
 
-|                                       [Student 1](https://github.com/)                                        |                                       [Danielle Romanoff](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/DanielleRomanoff)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/danielle-romanoff/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+| [Chris Luedtke](https://github.com/chrisluedtke)                                                               | [Danielle Romanoff](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
+| :-----------------------------------------------------------------------------------------------------------:  | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars0.githubusercontent.com/u/20371880?s=400&v=4" width = "200" />](https://github.com/) |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                  |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/DanielleRomanoff)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)  | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/danielle-romanoff/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
-
-
-🚫 5️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
@@ -38,8 +29,6 @@ You can find the project at [🚫URL NAME GOES HERE](🚫copy and paste URL here
 
 Visualizations of earthquakes by location, magnitude, and depth on a world map. Have the ability to zoom in and scroll over the world map. Statistical information about the data ie. are there correlations between magnitude and depth or any other variables. Average magnitude based on timeline and region.
 
-🚫  delete if front end is not applicable to your project
-
 1️⃣ [Deployed Front End](https://animearthquakes.herokuapp.com/)
 
 ### Tech Stack
@@ -47,7 +36,6 @@ Visualizations of earthquakes by location, magnitude, and depth on a world map. 
 Flask (Python web framework)
 Folium (leaflet.js Python API)
 Heroku hosting
-
 
 ### 2️⃣ Predictions
 
@@ -88,6 +76,48 @@ Heroku hosting
 ### 3️⃣ How to connect to the data API
 
 🚫 List directions on how to connect to the API here
+
+### How to Build Application for Local Development
+
+1. Clone/fork this repo. In the root of the directory, create  virtual environment ([guide](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/))
+    ```
+    python -m venv env
+    ```
+
+2. Activate the environment
+
+    Windows
+    ```
+    env\Scripts\activate
+    ```
+
+    macOS and Linux
+    ```
+    source env/bin/activate
+    ```
+
+3. Install requirements
+    ```
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+    pip install -r requirements_dev.txt
+    ```
+
+4. Create a `.env` in the root directory of this repo with the following info. **This file is not version controlled**. This is where we place secret credentials.
+    ```
+    FLASK_APP=app:APP
+    FLASK_ENV="development"
+    ```
+
+5. Run the server in development
+    ```
+    flask run
+    ```
+
+6. _Optional:_ Create an ipython kernel to use Jupyter Notebook with this environment. After calling `jupyter notebook`, you'll need to select this kernel in the interface (see [documentation](https://ipython.readthedocs.io/en/stable/install/kernel_install.html)).
+    ```
+    ipython kernel install --user --name=earthquakes-env
+    ```
 
 ## Contributing
 
