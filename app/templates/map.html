@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="jumbotron">
+    <h1>Interactive Map</h1>
+</div>
+<div class="card map-card">
+    <iframe src="/earthquakes" frameborder="0" style="width: 100%; height: 70vh;" id="map-iframe">
+</div>
+{% endblock body %}
