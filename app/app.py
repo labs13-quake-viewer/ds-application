@@ -10,7 +10,15 @@ def create_app():
     app.config.from_object(Config)
 
     @app.route('/')
-    def root():
+    def home():
+        return render_template('index.html')
+
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
+
+    @app.route('/map')
+    def map():
         make_map()
         return render_template('earthquakes.html')
 
