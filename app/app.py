@@ -19,7 +19,12 @@ def create_app():
 
     @app.route('/map')
     def map():
+        return render_template('map.html')
+
+    @app.route('/earthquakes')
+    def earthquakes():
         make_map()
         return render_template('earthquakes.html')
+        # return render_template('map.html')
 
     return app
