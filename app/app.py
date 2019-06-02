@@ -25,6 +25,5 @@ def create_app():
     def earthquakes():
         make_map()
         return render_template('earthquakes.html')
-        # return render_template('map.html')
 
     return app
