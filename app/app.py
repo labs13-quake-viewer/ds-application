@@ -21,6 +21,10 @@ def create_app():
     def map():
         return render_template('map.html')
 
+    @app.route('/help')
+    def help():
+        return 'HELP!!'
+
     @app.route('/earthquakes')
     def earthquakes():
         make_map()
