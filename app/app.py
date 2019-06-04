@@ -23,7 +23,9 @@ def create_app():
 
     @app.route('/earthquakes')
     def earthquakes():
-        make_map()
+        all_args = request.args.to_dict()
+        all_args['minmagnitude'] = all_args.get('minmagnitude', '2.5')
+        make_map(payload=all_args)
         return render_template('earthquakes.html')
 
     return app

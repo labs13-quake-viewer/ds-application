@@ -1,4 +1,5 @@
 import json
+from io import StringIO
 
 import folium
 import pandas as pd
@@ -6,9 +7,12 @@ import requests
 from folium import plugins
 
 
-def make_map(save_url='app/templates/earthquakes.html'):
-    df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/'
-                     'feed/v1.0/summary/2.5_month.csv')
+def make_map(save_path='app/templates/earthquakes.html', payload={}):
+    payload['format'] = 'csv'
+    r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
+                     params=payload)
+
+    df = pd.read_csv(StringIO(r.text))
 
     features = [
         {
@@ -74,4 +78,4 @@ def make_map(save_url='app/templates/earthquakes.html'):
         force_separate_button=True,
     ).add_to(m)
 
-    m.save(save_url)
+    m.save(save_path)
