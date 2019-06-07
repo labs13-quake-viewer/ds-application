@@ -9,18 +9,29 @@
 <div class="card bg-light">
     <div class="card-body">
         <h5 class="card-title">Choose Map Filters</h5>
-        <form action="/map" method="POST">
+        <form action="{{ url_for('map') }}" method="POST">
             <div class="form-row">
                 <div class="form-group col-sm-8">
-                    <label>Date Range</label>
+                    <label>Date Range (UTC)</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" name="starttime" id="starttime" placeholder="YYYY-MM-DD">
-                        <input type="text" class="form-control" name="endtime" id="endtime" placeholder="YYYY-MM-DD">
+                        <input type="text" class="form-control" name="starttime" id="starttime" value="{{ qry_params['starttime'] }}">
+                        <input type="text" class="form-control" name="endtime" id="endtime" value="{{ qry_params['endtime'] }}">
                     </div>
                 </div>
                 <div class="form-group col-sm-4">
                     <label for="min-magnitude">Min. Magnitude</label>
-                    <input type="text" class="form-control" name="minmagnitude" id="min-magnitude" value="2.5">
+                    <input type="text" class="form-control" name="minmagnitude" id="minmagnitude" value="{{ qry_params['minmagnitude'] }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    <label for="min-magnitude">Frame Period</label>
+                    <select class="form-control" name="period" id="period" value="{{ map_params['period'] }}">
+                        <option value="PT3H">3 Hours</option>
+                        <option value="PT6H">6 Hours</option>
+                        <option value="PT12H">12 Hours</option>
+                        <option value="PT24H">24 Hours</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group">
