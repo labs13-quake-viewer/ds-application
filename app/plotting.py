@@ -7,11 +7,11 @@ import requests
 from folium import plugins
 
 
-def make_map(save_path='app/templates/earthquakes.html', payload={}):
-    payload['format'] = 'csv'
+def make_map(qry_params, map_params):
+    qry_params['format'] = 'csv'
+    qry_params['limit'] = 20000
     r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
-                     params=payload)
-
+                     params=qry_params)
     df = pd.read_csv(StringIO(r.text))
 
     features = [
@@ -41,7 +41,7 @@ def make_map(save_path='app/templates/earthquakes.html', payload={}):
 
     m = folium.Map(
         tiles='CartoDBpositron',
-    #     zoom_start=1,
+        zoom_start=1.5,
     #     no_wrap=True,
         min_zoom=1.5,
         max_zoom=5,
@@ -67,9 +67,9 @@ def make_map(save_path='app/templates/earthquakes.html', payload={}):
             'type': 'FeatureCollection',
             'features': features
         },
-        period='PT6H', # six hour
+        period=map_params['period'],
         time_slider_drag_update=True,
-        duration='PT12H',
+        duration='PT' + str(int(map_params['period'][2:-1]) * 2) + 'H',
         date_options='YYYY-MM-DD HH UTC'
     ).add_to(m)
 
@@ -78,4 +78,6 @@ def make_map(save_path='app/templates/earthquakes.html', payload={}):
         force_separate_button=True,
     ).add_to(m)
 
-    m.save(save_path)
+    m.save('app/templates/earthquakes.html')
+
+    return True
