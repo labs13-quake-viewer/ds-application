@@ -1,6 +1,9 @@
 {% extends 'layout.html' %}
-{% block body %}
+{% block headers %}
+<title>Anim-Earthquakes - Map</title>
+{% endblock headers %}
 
+{% block body %}
 <div>
     <h1 class="display-4" style="margin-top: 10px;">Interactive Map</h1>
     <p class="lead">This map animates earthquake events over time.</p>
@@ -25,13 +28,17 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-sm-4">
-                    <label for="min-magnitude">Frame Period</label>
-                    <select class="form-control" name="period" id="period" value="{{ map_params['period'] }}">
-                        <option value="PT3H">3 Hours</option>
-                        <option value="PT6H">6 Hours</option>
-                        <option value="PT12H">12 Hours</option>
-                        <option value="PT24H">24 Hours</option>
-                    </select>
+                    <label>Frame Period</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="period_amt" id="period_amt" value="{{ map_params['period_amt'] }}">
+                        <select class="form-control" name="period_unit" id="period_unit">
+                            <option value="{{ map_params['period_unit'] }}" selected disabled hidden>{{ map_params['period_unit'] }}</option>
+                            <option value="House">Hours</option>
+                            <option value="Days">Days</option>
+                            <option value="Weeks">Weeks</option>
+                            <option value="Months">Months</option>
+                        </select> 
+                    </div>
                 </div>
             </div>
             <div class="form-group">
