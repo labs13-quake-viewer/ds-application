@@ -1,14 +1,16 @@
 import json
-from io import StringIO
 import re
+from io import StringIO
+from pathlib import Path
 
 import folium
 import pandas as pd
 import requests
 from folium import plugins
 
+save_path = Path(__file__).parent / 'templates' / 'earthquakes.html'
 
-def make_map(qry_params, map_params):
+def make_map(qry_params, map_params, save_path=save_path):
     qry_params['format'] = 'csv'
     qry_params['limit'] = 20000  # TODO: flash a warning message
     r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
@@ -63,9 +65,6 @@ def make_map(qry_params, map_params):
         }
     ).add_to(m)
 
-    period_amt = int(re.findall(r'\d+', map_params['period'])[0]) * 2
-    duration = re.sub(r'\d+', str(period_amt), map_params['period'])
-
     plugins.TimestampedGeoJson(
         {
             'type': 'FeatureCollection',
@@ -73,7 +72,7 @@ def make_map(qry_params, map_params):
         },
         period=map_params['period'],
         time_slider_drag_update=True,
-        duration=duration,
+        duration=map_params['duration'],
         date_options='YYYY-MM-DD HH UTC'
     ).add_to(m)
 
@@ -82,6 +81,41 @@ def make_map(qry_params, map_params):
         force_separate_button=True,
     ).add_to(m)
 
-    m.save('app/templates/earthquakes.html')
+    m.save(str(save_path))
 
     return True
+
+
+def get_quake_feats(qry_params):
+    qry_params['format'] = 'csv'
+    qry_params['limit'] = 20000  # TODO: flash a warning message
+    r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
+                     params=qry_params)
+    df = pd.read_csv(StringIO(r.text))
+
+    features = [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [r['longitude'], r['latitude']],
+            },
+            'properties': {
+                'time': r['time'][0:-1],
+                'popup': (
+                    f"<strong>Time:</strong> {r['time']}<br>"
+                    f"<strong>Place:</strong> {r['place']}<br>"
+                    f"<strong>Magnitude:</strong> {r['mag']} {r['magType']}<br>"
+                    f"<strong>Depth:</strong> {r['depth']}<br>"
+                ),
+                'icon': 'circle',
+                'iconstyle': {
+                    'fillOpacity': 0.5,
+                    'stroke': 0,
+                    'radius': r['mag'] * 2.5
+                },
+            }
+        } for i, r in df.iterrows()
+    ]
+
+    return {'type': 'FeatureCollection', 'features': features}

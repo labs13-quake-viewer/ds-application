@@ -1,11 +1,13 @@
 import datetime
+import json
+import re
 
 import dateutil.parser
 import pandas as pd
 from flask import Flask, redirect, render_template, request, url_for
 
 from .config import Config
-from .plotting import make_map
+from .plotting import make_map, get_quake_feats
 
 
 def create_app():
@@ -50,14 +52,33 @@ def create_app():
         map_params['period'] = ('P' + t_prefix + map_params['period_amt'] + 
                                 map_params['period_unit'][0])
 
-        make_map(qry_params, map_params)
+        duration = int(map_params['period_amt']) * 2
+        map_params['duration'] = re.sub(r'\d+', str(duration), 
+                                        map_params['period'])
+
+        # get quake geojson
+        quake_feats = get_quake_feats(qry_params)
+
+        # add faults
+        with open("data/PB2002_boundaries.json", "r") as read_file:
+            fault_feats = json.load(read_file)
+        
+        fault_feats = {
+            'type': 'FeatureCollection',
+            'features': fault_feats['features'],
+        }
 
         return render_template('map.html', qry_params=qry_params, 
-                               map_params=map_params)
+                               map_params=map_params, fault_feats=fault_feats,
+                               quake_feats=quake_feats)
 
     @app.route('/earthquakes.html')
     def earthquakes():
         return render_template('earthquakes.html')
+    
+    @app.errorhandler(404) 
+    def not_found(e):
+        return render_template("404.html") 
 
     return app
 
