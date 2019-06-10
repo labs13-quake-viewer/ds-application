@@ -1,14 +1,16 @@
 import json
-from io import StringIO
 import re
+from io import StringIO
+from pathlib import Path
 
 import folium
 import pandas as pd
 import requests
 from folium import plugins
 
+save_path = Path(__file__).parent / 'templates' / 'earthquakes.html'
 
-def make_map(qry_params, map_params):
+def make_map(qry_params, map_params, save_path=save_path):
     qry_params['format'] = 'csv'
     qry_params['limit'] = 20000  # TODO: flash a warning message
     r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
@@ -82,6 +84,6 @@ def make_map(qry_params, map_params):
         force_separate_button=True,
     ).add_to(m)
 
-    m.save('app/templates/earthquakes.html')
+    m.save(str(save_path))
 
     return True
