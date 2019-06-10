@@ -1,47 +1,64 @@
 {% extends 'layout.html' %}
-{% block body %}
+{% block headers %}
+<title>Quakespect - Map</title>
+{% endblock headers %}
 
-<div>
+{% block body %}
+<div class="col-md-8 px-0">
     <h1 class="display-4" style="margin-top: 10px;">Interactive Map</h1>
-    <p class="lead">This map animates earthquake events over time.</p>
+    <p class="lead">
+        This map animates earthquake events over time based on user-defined parameters. Pause the animation to click on earthquakes and view their details.
+    </p>
+    <p class="lead">
+        All data are provided by the <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS Earthquake Catalog</a>.
+    </p>
 </div>
 
-<div class="card bg-light">
-    <div class="card-body">
-        <h5 class="card-title">Choose Map Filters</h5>
-        <form action="{{ url_for('map') }}" method="POST">
-            <div class="form-row">
-                <div class="form-group col-sm-8">
-                    <label>Date Range (UTC)</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="starttime" id="starttime" value="{{ qry_params['starttime'] }}">
-                        <input type="text" class="form-control" name="endtime" id="endtime" value="{{ qry_params['endtime'] }}">
+<div id="accordion">
+    <div class="card bg-light">
+        <h6 class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="cursor: pointer;">
+            Edit Map Filters &#9662;
+        </h6>
+        <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form action="{{ url_for('map') }}" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-sm-8">
+                            <label>Date Range (UTC)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="starttime" id="starttime" value="{{ qry_params['starttime'] }}">
+                                <input type="text" class="form-control" name="endtime" id="endtime" value="{{ qry_params['endtime'] }}">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="min-magnitude">Min. Magnitude</label>
+                            <input type="text" class="form-control" name="minmagnitude" id="minmagnitude" value="{{ qry_params['minmagnitude'] }}">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group col-sm-4">
-                    <label for="min-magnitude">Min. Magnitude</label>
-                    <input type="text" class="form-control" name="minmagnitude" id="minmagnitude" value="{{ qry_params['minmagnitude'] }}">
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col-sm-4">
+                            <label>Frame Period</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="period_amt" id="period_amt" value="{{ map_params['period_amt'] }}">
+                                <select class="form-control" name="period_unit" id="period_unit">
+                                    <option value="{{ map_params['period_unit'] }}" selected disabled hidden>{{ map_params['period_unit'] }}</option>
+                                    <option value="Hours">Hours</option>
+                                    <option value="Days">Days</option>
+                                    <option value="Weeks">Weeks</option>
+                                    <option value="Months">Months</option>
+                                </select> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update Map</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-row">
-                <div class="form-group col-sm-4">
-                    <label for="min-magnitude">Frame Period</label>
-                    <select class="form-control" name="period" id="period" value="{{ map_params['period'] }}">
-                        <option value="PT3H">3 Hours</option>
-                        <option value="PT6H">6 Hours</option>
-                        <option value="PT12H">12 Hours</option>
-                        <option value="PT24H">24 Hours</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Update Map</button>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-
-<div class="card map-card">
-    <iframe src="earthquakes.html" frameborder="0" style="width: 100%; height: 70vh;" id="map-iframe">
+<div class="card" style="margin-top: 15px">
+    <iframe src="earthquakes.html" frameborder="0" style="width: 100%; height: 70vh;" id="map-iframe"></iframe>
 </div>
 {% endblock body %}

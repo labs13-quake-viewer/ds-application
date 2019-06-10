@@ -42,7 +42,13 @@ def create_app():
         qry_params['minmagnitude'] = request.values.get('minmagnitude', '2.5')
         
         map_params = {}
-        map_params['period'] = request.values.get('period', 'PT6H')
+        map_params['period_amt'] = request.values.get('period_amt', '6')
+        map_params['period_unit'] = request.values.get('period_unit', 'Hours')
+        
+        t_prefix = 'T' if map_params['period_unit'] == 'Hours' else ''
+        
+        map_params['period'] = ('P' + t_prefix + map_params['period_amt'] + 
+                                map_params['period_unit'][0])
 
         make_map(qry_params, map_params)
 

@@ -1,5 +1,6 @@
 import json
 from io import StringIO
+import re
 
 import folium
 import pandas as pd
@@ -9,7 +10,7 @@ from folium import plugins
 
 def make_map(qry_params, map_params):
     qry_params['format'] = 'csv'
-    qry_params['limit'] = 20000
+    qry_params['limit'] = 20000  # TODO: flash a warning message
     r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
                      params=qry_params)
     df = pd.read_csv(StringIO(r.text))
@@ -41,8 +42,8 @@ def make_map(qry_params, map_params):
 
     m = folium.Map(
         tiles='CartoDBpositron',
+        world_copy_jump=True,
         zoom_start=1.5,
-    #     no_wrap=True,
         min_zoom=1.5,
         max_zoom=5,
     )
@@ -62,6 +63,9 @@ def make_map(qry_params, map_params):
         }
     ).add_to(m)
 
+    period_amt = int(re.findall(r'\d+', map_params['period'])[0]) * 2
+    duration = re.sub(r'\d+', str(period_amt), map_params['period'])
+
     plugins.TimestampedGeoJson(
         {
             'type': 'FeatureCollection',
@@ -69,7 +73,7 @@ def make_map(qry_params, map_params):
         },
         period=map_params['period'],
         time_slider_drag_update=True,
-        duration='PT' + str(int(map_params['period'][2:-1]) * 2) + 'H',
+        duration=duration,
         date_options='YYYY-MM-DD HH UTC'
     ).add_to(m)
 
