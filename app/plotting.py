@@ -42,8 +42,8 @@ def make_map(qry_params, map_params):
 
     m = folium.Map(
         tiles='CartoDBpositron',
+        world_copy_jump=True,
         zoom_start=1.5,
-    #     no_wrap=True,
         min_zoom=1.5,
         max_zoom=5,
     )
