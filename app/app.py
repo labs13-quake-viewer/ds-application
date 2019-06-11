@@ -24,6 +24,14 @@ def create_app():
     def about():
         return render_template('about.html')
 
+    @app.route('/markets')
+    def markets():
+        return render_template('markets.html')
+
+    @app.route('/damage')
+    def damage():
+        return render_template('damage.html')
+
     @app.route('/map', methods=['GET', 'POST'])
     def map():
         dt_end = datetime.datetime.utcnow()
