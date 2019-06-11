@@ -1,6 +1,6 @@
 # 1️⃣ Quake Viewer
 
-You can find the project at [animearthquakes.herokuapp.com](https://animearthquakes.herokuapp.com/).
+You can find the project at [https://quakespect.herokuapp.com/](https://quakespect.herokuapp.com/).
 
 ## 5️⃣ Contributors
 
@@ -29,7 +29,7 @@ You can find the project at [animearthquakes.herokuapp.com](https://animearthqua
 
 Visualizations of earthquakes by location, magnitude, and depth on a world map. Have the ability to zoom in and scroll over the world map. Statistical information about the data ie. are there correlations between magnitude and depth or any other variables. Average magnitude based on timeline and region.
 
-1️⃣ [Deployed Front End](https://anim-earthquakes.herokuapp.com/map)
+1️⃣ [Deployed Front End](https://quakespect.herokuapp.com/)
 
 ### Tech Stack
 
