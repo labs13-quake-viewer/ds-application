@@ -28,6 +28,22 @@ def create_app():
     def markets():
         return render_template('markets.html')
 
+    @app.route("/gold", methods = ["POST"])
+    def gold():
+        return render_template('gold.html')
+
+    @app.route("/sp500", methods = ["POST"])
+    def sp500():
+        return render_template('sp500.html')
+
+    @app.route("/intermarket", methods = ["POST"])
+    def intermarket():
+        return render_template('intermarket.html')
+
+    @app.route("/marketmodels", methods = ["POST"])
+    def marketmodels():
+        return render_template('marketmodels.html')
+
     @app.route('/damage')
     def damage():
         return render_template('damage.html')

@@ -1,14 +1,23 @@
 {% extends 'layout.html' %}
 
 {% block headers %}
-<title></title>
+<title>Financial Markets Impact</title>
 {% endblock headers %}
 
 {% block body %}
 <div class="col-md-8 px-0">
-    <h1 class="display-4" style="margin-top: 10px;">Markets</h1>
-    <p class="lead">
-        Lead in text.
-    </p>
+    <h1 class="display-4" style="margin-top: 10px;">Financial Markets Impact</h1>
+    <form action="/gold" method="post">
+    	<input type="submit" class="success" value="Show Gold Analysis" style="width: 32%">
+	</form>
+    <form action="/sp500" method="post">
+    	<input type="submit" class="success" value="Show S&P 500 Analysis" style="width: 32%">
+	</form>
+    <form action="/intermarket" method="post">
+    	<input type="submit" class="success" value="Show Intermarket Analysis" style="width: 32%">
+	</form>
+    <form action="/marketmodels" method="post">
+    	<input type="submit" class="success" value="Show Impact Models" style="width: 32%">
+	</form>
 </div>
 {% endblock body %}
