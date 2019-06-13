@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block headers %}
+<title></title>
+{% endblock headers %}
+
+{% block body %}
+<div class="col-md-8 px-0">
+    <h1 class="display-4" style="margin-top: 10px;">Gold Analysis</h1>
+    <p class="lead">
+        <h2>Gold Performance 7 Days after Incident</h2>
+        <img src="/static/gold_7.png" alt="Gold 7-day Performance" width="1200" height="600" />
+        <h2>Gold Performance 14 Days after Incident</h2>
+        <img src="/static/gold_14.png" alt="Gold 14-day Performance" width="1200" height="600" />
+        <h2>Gold Performance 1 Month after Incident</h2>
+        <img src="/static/gold_30.png" alt="Gold 30-day Performance" width="1200" height="600" />
+        <img src="/static/gold_counts.png" alt="S&P500 30-day Performance WW" width="1200" height="100" />
+    </p>
+</div>
+{% endblock body %}

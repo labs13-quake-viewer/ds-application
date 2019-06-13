@@ -1,14 +1,21 @@
 import json
+import re
+from io import StringIO
+from pathlib import Path
 
 import folium
 import pandas as pd
 import requests
 from folium import plugins
 
+save_path = Path(__file__).parent / 'templates' / 'earthquakes.html'
 
-def make_map(save_url='app/templates/earthquakes.html'):
-    df = pd.read_csv('https://earthquake.usgs.gov/earthquakes/'
-                     'feed/v1.0/summary/2.5_month.csv')
+def make_map(qry_params, map_params, save_path=save_path):
+    qry_params['format'] = 'csv'
+    qry_params['limit'] = 20000  # TODO: flash a warning message
+    r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
+                     params=qry_params)
+    df = pd.read_csv(StringIO(r.text))
 
     features = [
         {
@@ -37,8 +44,8 @@ def make_map(save_url='app/templates/earthquakes.html'):
 
     m = folium.Map(
         tiles='CartoDBpositron',
-    #     zoom_start=1,
-    #     no_wrap=True,
+        world_copy_jump=True,
+        zoom_start=1.5,
         min_zoom=1.5,
         max_zoom=5,
     )
@@ -63,9 +70,9 @@ def make_map(save_url='app/templates/earthquakes.html'):
             'type': 'FeatureCollection',
             'features': features
         },
-        period='PT6H', # six hour
+        period=map_params['period'],
         time_slider_drag_update=True,
-        duration='PT12H',
+        duration=map_params['duration'],
         date_options='YYYY-MM-DD HH UTC'
     ).add_to(m)
 
@@ -74,4 +81,41 @@ def make_map(save_url='app/templates/earthquakes.html'):
         force_separate_button=True,
     ).add_to(m)
 
-    m.save(save_url)
+    m.save(str(save_path))
+
+    return True
+
+
+def get_quake_feats(qry_params):
+    qry_params['format'] = 'csv'
+    qry_params['limit'] = 20000  # TODO: flash a warning message
+    r = requests.get('https://earthquake.usgs.gov/fdsnws/event/1/query', 
+                     params=qry_params)
+    df = pd.read_csv(StringIO(r.text))
+
+    features = [
+        {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                'coordinates': [r['longitude'], r['latitude']],
+            },
+            'properties': {
+                'time': r['time'][0:-1],
+                'popup': (
+                    f"<strong>Time:</strong> {r['time']}<br>"
+                    f"<strong>Place:</strong> {r['place']}<br>"
+                    f"<strong>Magnitude:</strong> {r['mag']} {r['magType']}<br>"
+                    f"<strong>Depth:</strong> {r['depth']}<br>"
+                ),
+                'icon': 'circle',
+                'iconstyle': {
+                    'fillOpacity': 0.5,
+                    'stroke': 0,
+                    'radius': r['mag'] * 2.5
+                },
+            }
+        } for i, r in df.iterrows()
+    ]
+
+    return {'type': 'FeatureCollection', 'features': features}

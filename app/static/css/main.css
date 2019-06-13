@@ -2,6 +2,10 @@ nav {
   margin-bottom: 2px;
 }
 
+.navbar-nav li {
+  margin-right: 100px;
+}
+
 div.card.map-card {
   height: 100%;
   border-radius: 10px;
