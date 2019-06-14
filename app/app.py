@@ -53,7 +53,6 @@ def create_app():
         dt_end = datetime.datetime.utcnow()
         dt_beg = (dt_end - datetime.timedelta(days=30)).isoformat()
         dt_end = dt_end.isoformat()
-
         qry_params = {}
         try:
             qry_params['starttime'] = parse_dtstr(
