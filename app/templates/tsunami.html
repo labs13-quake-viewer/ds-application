@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block headers %}
+<title>Quakespect Tsunami Impact</title>
+{% endblock headers %}
+
+{% block body %}
+<div>
+    <h1 class="display-4" style="margin-top: 10px;">Tsunami</h1>
+    <p class="lead">
+      The Effect of an Earthquake Generated Tsunami on Damage Numbers
+    </p>
+    <div class="danielles-grid">
+      <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~dlromanoff/135.embed"></iframe>
+      <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~dlromanoff/133.embed"></iframe>
+    </div>
+    <a href="https://colab.research.google.com/github/labs13-quake-viewer/ds-notebooks/blob/master/Plots.ipynb" target="blank" class="btn btn-primary">View Notebook</a>
+</div>
+{% endblock body %}

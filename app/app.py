@@ -48,6 +48,10 @@ def create_app():
     def damage():
         return render_template('damage.html')
 
+    @app.route('/tsunami')
+    def tsunami():
+        return render_template('tsunami.html')
+
     @app.route('/map', methods=['GET', 'POST'])
     def map():
         dt_end = datetime.datetime.utcnow()
