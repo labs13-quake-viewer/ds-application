@@ -106,5 +106,4 @@ venv.bak/
 # my repo
 *.vscode*
 app/templates/earthquakes.html
-
 .DS_Store

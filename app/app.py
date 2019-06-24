@@ -48,6 +48,10 @@ def create_app():
     def tsunami():
         return render_template('tsunami.html')
 
+    @app.route('/predictions')
+    def predictions():
+        return render_template('predictions.html')
+
     @app.route('/map', methods=['GET', 'POST'])
     def map():
         dt_end = datetime.datetime.utcnow()
@@ -98,6 +102,10 @@ def create_app():
     @app.route('/earthquakes.html')
     def earthquakes():
         return render_template('earthquakes.html')
+
+    @app.route('/map_likelihoods.html')
+    def map_likelihoods():
+        return render_template('map_likelihoods.html')
     
     @app.errorhandler(404) 
     def not_found(e):

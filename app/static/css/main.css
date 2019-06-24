@@ -1,9 +1,5 @@
-nav {
-  margin-bottom: 2px;
-}
-
 .navbar-nav li {
-  margin-right: 100px;
+  margin-right: 1rem;
 }
 
 div.card.map-card {
