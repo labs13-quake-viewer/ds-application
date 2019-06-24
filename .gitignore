@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 # my repo
-.vscode/*
+*.vscode*
 app/templates/earthquakes.html
 
 .DS_Store
