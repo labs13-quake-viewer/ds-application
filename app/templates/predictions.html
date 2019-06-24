@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block headers %}
+<title>Quakespect - Predictions</title>
+{% endblock headers %}
+
+{% block body %}
+<div class="col-md-8 px-0">
+    <h1 class="display-4" style="margin-top: 10px;">Earthquake Predictions</h1>
+    <p class="lead">
+        This map presents the percent likelihood of a magnitude 5.5 or greater event in any 7 day period. 
+        These predictions were calculated from <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS data</a> in the 30 year period between 1989 and 2019.
+    </p>
+</div>
+
+<div class="card">
+    <iframe src="{{ url_for('map_likelihoods') }}" frameborder="0" style="width: 100%; height: 70vh;"></iframe>
+</div>
+{% endblock body %}
