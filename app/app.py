@@ -24,23 +24,19 @@ def create_app():
     def about():
         return render_template('about.html')
 
-    @app.route('/markets')
-    def markets():
-        return render_template('markets.html')
-
-    @app.route("/gold", methods = ["POST"])
+    @app.route('/gold')
     def gold():
         return render_template('gold.html')
 
-    @app.route("/sp500", methods = ["POST"])
+    @app.route('/sp500')
     def sp500():
         return render_template('sp500.html')
 
-    @app.route("/intermarket", methods = ["POST"])
+    @app.route('/intermarket')
     def intermarket():
         return render_template('intermarket.html')
 
-    @app.route("/marketmodels", methods = ["POST"])
+    @app.route('/marketmodels')
     def marketmodels():
         return render_template('marketmodels.html')
 
@@ -112,3 +108,25 @@ def create_app():
 
 def parse_dtstr(dtstr):
     return dateutil.parser.parse(dtstr).strftime("%Y-%m-%d %H:%M")
+'''
+    @app.route('/markets')
+    def markets():
+        return render_template('markets.html')
+'''
+'''
+    @app.route("/gold", methods = ["POST"])
+    def gold():
+        return render_template('gold.html')
+
+    @app.route("/sp500", methods = ["POST"])
+    def sp500():
+        return render_template('sp500.html')
+
+    @app.route("/intermarket", methods = ["POST"])
+    def intermarket():
+        return render_template('intermarket.html')
+
+    @app.route("/marketmodels", methods = ["POST"])
+    def marketmodels():
+        return render_template('marketmodels.html')
+'''
