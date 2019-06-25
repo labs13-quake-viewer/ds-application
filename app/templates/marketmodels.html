@@ -5,15 +5,20 @@
 {% endblock headers %}
 
 {% block body %}
-<style>
-    body {
-    background-color: rgba(8, 247, 235, 0.842)
-    }
-</style>
 <div class="col-md-11 px-0">
     <h1 class="display-4" style="margin-top: 10px;">Financial Markets Impact Models</h1>
     <p></p>
-    <br/>
+    <p>The modeling results presented here indicate that - at least for Gold and the S&P 500 - the
+            occurrence of earthquakes is a poor predictor of the direction of financial markets. The
+            best result obtained was 9.21% accuracy; this was using an XGBoost model for Gold prices
+            after a 6.7 earthquake. From there things get worse, with Linear and Logistic Regression
+            models performing especially poorly. Another interesting observation is that when the
+            threshold is decreased from Magnitude 6.7+ to 5.5+ (resulting in an approximately twelvefold
+            increase in the number of incidents used in the model), the accuracy decreases significantly.
+            A final point is that the XGBoost models using the Mag 5.5+ dataset - running in a maxed-out
+            AWS Sagemaker instance - ran approximately 12 days of CPU (yes!) for the S&P 500 model and
+            10 days for the Gold model.</p>
+       <br/>
     <p class="lead">
         Predictive Models for impact of Earthquake events on Gold prices.
     <p></p>
@@ -36,9 +41,10 @@
     <img src="/static/Gold5.5RFReg.png" alt="Gold 5.5RFReg" width="500" height="90" />
     <p></p>
     <br/>
-        XGBoost, Magnitude 6.7:
+        XGBoost,  Magnitudes 6.7 and 5.5:
     <br/>
     <img src="/static/Gold6.7XGB.png" alt="Gold 6.7XGB" width="500" height="80" />
+    <img src="/static/Gold5.5XGB.png" alt="Gold 5.5XGB" width="500" height="80" />
     </p>
     <p></p>
     <br/>
@@ -48,25 +54,26 @@
     <br/>
         Linear and Logistic Regression, Magnitude 6.7:
     <br/>
-    <img src="/static/SP6.7LinReg.png" alt="Gold 6.7LinReg" width="500" height="120" />
-    <img src="/static/SP6.7LogReg.png" alt="Gold 6.7LogReg" width="500" height="66" />
+    <img src="/static/SP6.7LinReg.png" alt="SP500 6.7LinReg" width="500" height="120" />
+    <img src="/static/SP6.7LogReg.png" alt="SP500 6.7LogReg" width="500" height="66" />
     <p></p>
     <br/>
         Linear and Logistic Regression, Magnitude 5.5:
     <br/>
-    <img src="/static/SP5.5LinReg.png" alt="Gold 5.5LinReg" width="500" height="120" />
-    <img src="/static/SP5.5LogReg.png" alt="Gold 5.5LogReg" width="500" height="66" />
+    <img src="/static/SP5.5LinReg.png" alt="SP500 5.5LinReg" width="500" height="120" />
+    <img src="/static/SP5.5LogReg.png" alt="SP500 5.5LogReg" width="500" height="66" />
     <p></p>
     <br/>
         Randon Forest Regressor, Magnitudes 6.7 and 5.5:
     <br/>
-    <img src="/static/SP6.7RFReg.png" alt="Gold 6.7RFReg" width="500" height="90" />
-    <img src="/static/SP5.5RFReg.png" alt="Gold 5.5RFReg" width="500" height="90" />
+    <img src="/static/SP6.7RFReg.png" alt="SP500 6.7RFReg" width="500" height="90" />
+    <img src="/static/SP5.5RFReg.png" alt="SP500 5.5RFReg" width="500" height="90" />
     <p></p>
     <br/>
-        XGBoost, Magnitude 6.7:
+        XGBoost,  Magnitudes 6.7 and 5.5:
     <br/>
-    <img src="/static/SP6.7XGB.png" alt="Gold 6.7XGB" width="500" height="80" />
+    <img src="/static/SP6.7XGB.png" alt="SP500 6.7XGB" width="500" height="80" />
+    <img src="/static/SP5.5XGB.png" alt="SP500 5.5XGB" width="500" height="80" />
     </p>
 </div>
 {% endblock body %}
