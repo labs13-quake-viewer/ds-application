@@ -24,7 +24,7 @@
 
     <h3>Gathering Data</h3>
 
-    <p>We begin our analysis with data made available by USGS, which was the most accessbile and complete catalogue we could find. USGS are transparent that <a href="https://earthquake.usgs.gov/data/comcat/data-availability.php">this catalogue is not complete</a> and should not be treated as such. Incomplete data are a universal challenge in earthquake modeling and data science more broadly.</p>
+    <p>We begin our analysis with data made available by USGS, which was the most accessbile and complete catalog we could find. USGS are transparent that <a href="https://earthquake.usgs.gov/data/comcat/data-availability.php">this catalog is not complete</a> and should not be treated as such. Incomplete data are a universal challenge in earthquake modeling and data science more broadly.</p>
 
     <p>In this case, missing data can be categorized two ways: 1) missing due to recency and 2) missing due to detective ability.</p>
 
@@ -47,12 +47,12 @@
         </div>
     </div>
 
-    <p>The USGS catalogue is constantly evolving as earthquake events are created or modified retroactively. This is demonstrated in <strong>Figure 2</strong>, which shows that the majority are updated more than 50 days after they occur.</p>
+    <p>The USGS catalog is constantly evolving as earthquake events are created or modified retroactively. This is demonstrated in <strong>Figure 2</strong>, which shows that the majority are updated more than 50 days after they occur.</p>
 
     <div id="accordionTwo" style="margin-bottom: 20px">
         <div class="card bg-light">
             <h6 class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="cursor: pointer;">
-                Figure 2: Lag Period of Retroactive Catalogue Edits
+                Figure 2: Lag Period of Retroactive catalog Edits
             </h6>
             <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionTwo">
                 <a href="/static/update_dist.png">
@@ -71,13 +71,13 @@
 
     <p>Thankfully, the Gutenberg–Richter law provides a starting point to assess these missing data:</p>
     
-    <blockquote class="blockquote">
+    <blockquote class="blockquote" style="max-width: 750px; padding: 15px; border: 1px solid rgb(156, 156, 156); border-radius: 5px;">
     <p>The Gutenberg–Richter law expresses the relationship between the magnitude and total number of earthquakes in any given region and time period of <em>at least</em> that magnitude.</p>
-    <p>log<sub>10</sub>N = a - bM</p>
-    <footer class="blockquote-footer">Wikipedia <a href="https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law"><cite title="Source Title">Gutenberg–Richter law</cite></a></footer>
+    <p>log<sub>10</sub><em>N</em> = a - b<em>M</em></p>
+    <footer class="blockquote-footer">Wikipedia, <a href="https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law"><cite title="Source Title">Gutenberg–Richter law</cite></a></footer>
     </blockquote>
 
-    <p>Seismologists use this law to identify the magnitude threshold, M<sub>c</sub>, above which an earthquake catalogue is deemed to be complete. We did the same for the USGS catalogue by iteratively increasing M<sub>c</sub>, computing a linear regression, and keeping the M<sub>c</sub> for which the linear regression best fit our observed data. <strong>Figure 3</strong> displays our results.</p>
+    <p>Seismologists use this law to identify the magnitude threshold, M<sub>c</sub>, above which an earthquake catalog is deemed to be complete. We did the same for the USGS catalog by iteratively increasing M<sub>c</sub>, computing a linear regression, and keeping the M<sub>c</sub> for which the linear regression best fit our observed data. <strong>Figure 3</strong> displays our results.</p>
 
     <div id="accordionThree" style="margin-bottom: 20px">
         <div class="card bg-light">
@@ -98,13 +98,13 @@
 
     <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that USGS both detects more earthquake in the United States and publishes those events more rapidly.</p>
 
-    <p>There are a number of approaches to this dimension of our analysis. Ideally, we would access a database containing precise coordinate locations and time periods of all seismic stations on earth. Instead, we construct an plot equidistant nodes across the Earth and assess our data by each node.</p>
+    <p>There are a number of approaches to this dimension of our analysis. Ideally, we would access a database containing precise coordinate locations and time periods of all seismic stations on earth. Alternatively, there may be existing seismic region definitions that define regions by observed seismic properties. In our approach, we place equidistant nodes across the Earth and assess the data nearest to each node.</p>
 
     <p>to be continued...</p>
 
     To fully characterize these problems, one would need to explore the extent of the issue by each region on earth (not to mention the task of defining these regions).
     * plot by magnitude
-    * Data catalogue completion
+    * Data catalog completion
     * GR Law, by region and by time
     * goal is to get regions whose dataset are as complete as possible, and whose seismic properties are internally consistent
         
