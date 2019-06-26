@@ -11,7 +11,7 @@ from .plotting import make_map, get_quake_feats
 
 
 def create_app():
-    """Create and configure and instance of the Flask application."""
+    """Create and configure instance of the Flask application."""
     app = Flask(__name__)
     app.config.from_object(Config)
 
@@ -47,6 +47,10 @@ def create_app():
     @app.route('/tsunami')
     def tsunami():
         return render_template('tsunami.html')
+
+    @app.route('/us_events')
+    def us_events():
+        return render_template('us_events.html')
 
     @app.route('/predictions')
     def predictions():
@@ -99,13 +103,9 @@ def create_app():
                                map_params=map_params, fault_feats=fault_feats,
                                quake_feats=quake_feats)
 
-    @app.route('/earthquakes.html')
-    def earthquakes():
-        return render_template('earthquakes.html')
-
-    @app.route('/map_likelihoods.html')
-    def map_likelihoods():
-        return render_template('map_likelihoods.html')
+    @app.route('/html_plot/<string:html_name>')
+    def html_plot(html_name):
+        return render_template(f"/html_plot/{html_name}")
     
     @app.errorhandler(404) 
     def not_found(e):
@@ -116,25 +116,3 @@ def create_app():
 
 def parse_dtstr(dtstr):
     return dateutil.parser.parse(dtstr).strftime("%Y-%m-%d %H:%M")
-'''
-    @app.route('/markets')
-    def markets():
-        return render_template('markets.html')
-'''
-'''
-    @app.route("/gold", methods = ["POST"])
-    def gold():
-        return render_template('gold.html')
-
-    @app.route("/sp500", methods = ["POST"])
-    def sp500():
-        return render_template('sp500.html')
-
-    @app.route("/intermarket", methods = ["POST"])
-    def intermarket():
-        return render_template('intermarket.html')
-
-    @app.route("/marketmodels", methods = ["POST"])
-    def marketmodels():
-        return render_template('marketmodels.html')
-'''
