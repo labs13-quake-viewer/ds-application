@@ -13,3 +13,11 @@ div.card.map-card {
   grid-template-columns: 1fr 1fr;
   left: 50px;
 }
+
+body {
+  color: #fff;
+}
+
+.card {
+  color: #000;
+}
