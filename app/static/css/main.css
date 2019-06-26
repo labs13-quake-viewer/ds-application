@@ -23,3 +23,12 @@ body {
 .card {
   color: #000;
 }
+
+.table-card {
+  padding:20px;
+  margin: 20px 0;
+}
+
+.body-padding{
+  height: 10vh;
+}
