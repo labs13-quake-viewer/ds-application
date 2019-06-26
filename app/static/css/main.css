@@ -8,10 +8,12 @@ div.card.map-card {
 }
 
 .danielles-grid {
-  position: absolute;
+  /* position: absolute; */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  left: 50px;
+  /* left: 50px; */
+  width: 100%;
+  height: auto;
 }
 
 body {
