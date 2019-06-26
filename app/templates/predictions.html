@@ -9,11 +9,106 @@
     <h1 class="display-4" style="margin-top: 10px;">Earthquake Predictions</h1>
     <p class="lead">
         This map presents the percent likelihood of a magnitude 5.5 or greater event in any 7 day period. 
-        These predictions were calculated from <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS data</a> in the 30 year period between 1989 and 2019.
+        These predictions were calculated from <a href="https://earthquake.usgs.gov/earthquakes/search/">USGS data</a> in the 30 year period between 1989 and 2019. <a href="#writeup">Read below</a> to learn more.
     </p>
 </div>
 
-<div class="card">
-    <iframe src="{{ url_for('html_plot', html_name='map_likelihoods.html') }}" frameborder="0" style="width: 100%; height: 70vh;"></iframe>
+<div class="card" style="margin-bottom: 30px">
+    <iframe src="{{ url_for('html_plot', html_name='map_likelihoods.html') }}" frameborder="0" style="width: 100%; height: 70vh"></iframe>
+</div>
+
+<div style="max-width: 800px">
+    <h2 id='writeup'>Predicting Earthquake Events</h2>
+
+    <p>Some seismologist claim earthquake prediction is an inherently impossible task. While respecting this perspective, we maintain a healthy optimism that technical advancements may make the problem tractable. In the development of our model presented above, we reviewed recent academic articles implementing new machine learning techniques to various degrees of success. We link to those articles and provide notes on GitHub. Below we present our process in developing our own baseline predictive model.</p>
+
+    <h3>Gathering Data</h3>
+
+    <p>We begin our analysis with data made available by USGS, which was the most accessbile and complete catalogue we could find. USGS are transparent that <a href="https://earthquake.usgs.gov/data/comcat/data-availability.php">this catalogue is not complete</a> and should not be treated as such. Incomplete data are a universal challenge in earthquake modeling and data science more broadly.</p>
+
+    <p>In this case, missing data can be categorized two ways: 1) missing due to recency and 2) missing due to detective ability.</p>
+
+    <h4>Missing Due to Recency</h4>
+
+    <p>To assess this category of missing data, we consider magnitude 4+ earthquake events occurring in 2019.</p>
+
+    <p>In <strong>Figure 1</strong> we see a dramatic decrease in magnitude 4-5 events in the last month. We presume this does not represent actual earthquake acivity, but rather suggests missing data.</p>
+        
+    <div id="accordionOne" style="margin-bottom: 20px">
+        <div class="card bg-light">
+            <h6 class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="cursor: pointer;">
+                Figure 1: Reduction in Events Over the Past 30 Days
+            </h6>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionOne">
+                <a href="/static/recency_freq.png">
+                    <img src="/static/recency_freq.png" width="100%">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p>The USGS catalogue is constantly evolving as earthquake events are created or modified retroactively. This is demonstrated in <strong>Figure 2</strong>, which shows that the majority are updated more than 50 days after they occur.</p>
+
+    <div id="accordionTwo" style="margin-bottom: 20px">
+        <div class="card bg-light">
+            <h6 class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style="cursor: pointer;">
+                Figure 2: Lag Period of Retroactive Catalogue Edits
+            </h6>
+            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionTwo">
+                <a href="/static/update_dist.png">
+                    <img src="/static/update_dist.png" style="width:100%;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p>Missing data due to recency make real-time predictive models difficult to deploy. If we were to update a predictive model on current events, Our model would get the mistaken impression that fewer earthquakes had occured recently than have actually taken place. We could only base predictions on events which USGS can reliably publish on a timely basis for each region on Earth.</p>
+
+    <p>We did not employ a rigorous solution to this category of missing data. We limited our analysis to events prior to January 1, 2019 in hopes that the majority of earthquake events had already been logged.</p>
+
+    <h4>Missing Due to Detective Ability</h4>
+    <p>Earthquare sensors across the world are incapable of detecting even a majority of earthquake events. To demonstrate, we consider all magnitude 2+ earthquakes between 1989 and 2019.</p>
+
+    <p>Thankfully, the Gutenberg–Richter law provides a starting point to assess these missing data:</p>
+    
+    <blockquote class="blockquote">
+    <p>The Gutenberg–Richter law expresses the relationship between the magnitude and total number of earthquakes in any given region and time period of <em>at least</em> that magnitude.</p>
+    <p>log<sub>10</sub>N = a - bM</p>
+    <footer class="blockquote-footer">Wikipedia <a href="https://en.wikipedia.org/wiki/Gutenberg%E2%80%93Richter_law"><cite title="Source Title">Gutenberg–Richter law</cite></a></footer>
+    </blockquote>
+
+    <p>Seismologists use this law to identify the magnitude threshold, M<sub>c</sub>, above which an earthquake catalogue is deemed to be complete. We did the same for the USGS catalogue by iteratively increasing M<sub>c</sub>, computing a linear regression, and keeping the M<sub>c</sub> for which the linear regression best fit our observed data. <strong>Figure 3</strong> displays our results.</p>
+
+    <div id="accordionThree" style="margin-bottom: 20px">
+        <div class="card bg-light">
+            <h6 class="card-header" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style="cursor: pointer;">
+                Figure 3: Observed Earthquake Events versus Expected
+            </h6>
+            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionThree">
+                <a href="/static/gr_law.png">
+                    <img src="/static/gr_law.png" style="width:100%;">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <p>These missing data are handled by simply dropping all records below the identified M<sub>c</sub>.</p>
+
+    <h4>Space Complexity</h4>
+
+    <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that USGS both detects more earthquake in the United States and publishes those events more rapidly.</p>
+
+    <p>There are a number of approaches to this dimension of our analysis. Ideally, we would access a database containing precise coordinate locations and time periods of all seismic stations on earth. Instead, we construct an plot equidistant nodes across the Earth and assess our data by each node.</p>
+
+    <p>to be continued...</p>
+
+    To fully characterize these problems, one would need to explore the extent of the issue by each region on earth (not to mention the task of defining these regions).
+    * plot by magnitude
+    * Data catalogue completion
+    * GR Law, by region and by time
+    * goal is to get regions whose dataset are as complete as possible, and whose seismic properties are internally consistent
+        
+    In our analysis we sidestep these challenges by ...
+    * Splitting the world into regions, spherical mathematics
 </div>
 {% endblock body %}
