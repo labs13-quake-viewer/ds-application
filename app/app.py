@@ -48,6 +48,18 @@ def create_app():
     def tsunami():
         return render_template('tsunami.html')
 
+    @app.route('/regions')
+    def regions():
+        return render_template('cluster_map.html')
+
+    @app.route('/heatmap')
+    def heatmap():
+        return render_template('heatmap.html')
+
+    @app.route('/analysis')
+    def analysis():
+        return render_template('analysis.html')
+
     @app.route('/predictions')
     def predictions():
         return render_template('predictions.html')

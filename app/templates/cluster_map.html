@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<head>    
+{% extends 'layout.html' %}
+{% block headers %}
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     
         <script>
@@ -33,12 +33,15 @@
             </style>
         
     <script src="https://leaflet.github.io/Leaflet.heat/dist/leaflet-heat.js"></script>
-</head>
-<body>    
-    
+{% endblock headers %}
+
+{% block body %}
+        
             <div class="folium-map" id="map_412105d574b349069e3769721620b872" ></div>
         
-</body>
+{% endblock body %}
+
+{% block outofbody %}
 <script>    
     
             var map_412105d574b349069e3769721620b872 = L.map(
@@ -68,3 +71,4 @@
             ).addTo(map_412105d574b349069e3769721620b872);
         
 </script>
+{% endblock outofbody %}
