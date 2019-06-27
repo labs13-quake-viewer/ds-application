@@ -106,7 +106,7 @@
 
     <h3>The Spatial Dimension</h3>
 
-    <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that USGS both detects more earthquake in the United States and publishes those events more rapidly.</p>
+    <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that USGS both detects more earthquakes in the United States and also publishes those events more rapidly.</p>
 
     <p>There are a number of approaches to this dimension of our analysis. Ideally, we would access a database containing precise coordinate locations and time periods of all seismic sensor stations on earth. Alternatively, we would find existing seismic region definitions based on observed seismic properties.</p>
 
@@ -123,7 +123,7 @@
         </div>
     </div>
 
-    <p>Since we ultimately care about predicting large earthquakes, we first group only magnitude 5.5 or greater events to their nearest node. Clustering is done by haversine distance. This greatly simplifies our computations per node, as we reduce nodes by 78%. <strong>Figure 5</strong> displays these nodes.</p>
+    <p>Since we ultimately care about predicting large earthquakes, we first cluster only magnitude 5.5 or greater events to their nearest node. Limiting to these nodes greatly reduces computation cost, as we needed only 22% of our 4,000 node locations to capture all 5.5+ magnitude events. <strong>Figure 5</strong> displays these nodes.</p>
 
     <div id="accordionFive" style="margin-bottom: 20px">
         <div class="card bg-light">
