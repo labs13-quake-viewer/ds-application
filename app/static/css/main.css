@@ -32,3 +32,7 @@ body {
 .body-padding{
   height: 10vh;
 }
+
+div.card.table-card.winstons {
+  width: calc(40px + 100%);
+}
