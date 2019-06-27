@@ -13,10 +13,12 @@
 </div>
 
 <h4>Heatmap</h4>
+<p>This heatmap shows the regions in US affected by any type of seismic activity from 1800 to 2019. Map can be zoomed in and out.</p>
 <div class="card">
     <iframe src="{{ url_for('html_plot', html_name='cluster_map.html') }}" frameborder="0" style="width: 100%; height: 70vh; margin-bottom: 10px;"></iframe>
 </div>
 <h4>Cluster Map</h4>
+<p>The map shows the clusters of seismic activities in US showing exact number of earthquakes in each region. Map can be zoomed in and out.</p>
 <div class="card">
     <iframe src="{{ url_for('html_plot', html_name='heatmap.html') }}" frameborder="0" style="width: 100%; height: 70vh;"></iframe>
 </div>
