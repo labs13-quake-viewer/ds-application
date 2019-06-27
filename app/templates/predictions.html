@@ -140,7 +140,9 @@
 
     <h3>Baseline Predictions</h3>
 
-    <p>To get our baseline predictive model, for each cluster we counted the number of weeks in which a 5.5+ magnitude event occured. We then divided this by the total number of weeks in our dataset. This gives a percent likelihood of 5.5+ magnitude earthquake for each node. This baseline relies on the assumption that all USGS has accurately cataloged all 5.5+ magnitude earthquakes since 1989.</p>
+    <p>To get our baseline predictive model, for each cluster we counted the number of weeks in which a 5.5+ magnitude event occured. We then divided this by the total number of weeks in our dataset. This gives a percent likelihood of 5.5+ magnitude earthquake for each node. A cluster in which 15 weeks contained magnitude 5.5+ earthquakes corresponds to roughly a 1% chance of 5.5+ magnitude earthquake in any given week.</p>
+    
+    <p>This baseline relies on the assumption that USGS has accurately cataloged all 5.5+ magnitude earthquakes since 1989.</p>
 
     <p>Finally, we re-added the nodes in which no 5.5+ magnitude earthquakes have occured and assigned 0% likelihood to those nodes. This gave us a complete grid of nodes over the Earth along with their earthquake likelihood values. We used these values to produce the final contour map presented above.</p>
 
