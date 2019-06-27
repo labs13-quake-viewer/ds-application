@@ -36,3 +36,12 @@ body {
 div.card.table-card.winstons {
   width: calc(40px + 100%);
 }
+
+.test-figure {
+  display: block;
+}
+
+.notebook-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
