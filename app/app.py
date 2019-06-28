@@ -61,6 +61,11 @@ def create_app():
     def activityanalysis():
         return render_template('activityanalysis.html')
 
+    # Temp fix for iframe
+    @app.route('/tempearthquakes')
+    def tempearthquakes():
+        return render_template('temp_earthquakes.html')
+
 
     @app.route('/map', methods=['GET', 'POST'])
     def map():
