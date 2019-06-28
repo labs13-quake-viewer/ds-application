@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='images/qs-logo-white.svg') }}" alt="" class="qs-nav-logo"></a>
     <button
@@ -17,40 +17,47 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Events & Predictions
+            Impact
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ url_for('map') }}">Event Map</a>
-            <a class="dropdown-item" href="{{ url_for('predictions') }}">Event Prediction</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Damage Assessment
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <p class="dropdown-item" style="font-weight:800; margin: 0;">Damage</p>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/damage">Damage</a>
             <a class="dropdown-item" href="/tsunami">Tsunami</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Financial Markets Impact
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/damagecost">Damage Cost</a>
+            <div class="dropdown-divider"></div>
+            <p class="dropdown-item" style="font-weight:800; margin: 0;">Financial</p>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/gold">Gold Analysis</a>
             <a class="dropdown-item" href="/sp500">S&P 500 Analysis</a>
             <a class="dropdown-item" href="/intermarket">Intermarket Analysis</a>
             <a class="dropdown-item" href="/marketmodels">Impact Models</a>
           </div>
         </li>
-        <li>
-          <a class="nav-link" href="{{ url_for('us_events') }}">
-            U.S. Events
-          </a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <p class="dropdown-item" style="font-weight:800; margin: 0;">World Events</p>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ url_for('map') }}">Event Map</a>
+              <div class="dropdown-divider"></div>
+              <p class="dropdown-item" style="font-weight:800; margin: 0;">US Events</p>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ url_for('us_events') }}">Events</a>
+              <a class="dropdown-item" href="{{ url_for('activityanalysis') }}">Analysis</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Predictions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('predictions') }}">Event Prediction</a>
+          </div>
         </li>
       </ul>
-      <!-- <a class="btn btn-outline-light btn-sm" href="{{ url_for('about') }}">About</a> -->
     </div>
   </div>
 </nav>
