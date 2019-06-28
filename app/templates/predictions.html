@@ -34,7 +34,7 @@
 
     <h3>Gathering Data</h3>
 
-    <p>We begin our analysis with data made available by USGS, which was the most accessible and complete catalog we found. USGS are transparent that <a href="https://earthquake.usgs.gov/data/comcat/data-availability.php">this catalog is not complete</a> and should not be treated as such. Incomplete data are a universal challenge in earthquake modeling and in data science more broadly.</p>
+    <p>We begin our analysis with data made available by the USGS, which was the most accessible and complete catalog we found. The USGS is transparent that <a href="https://earthquake.usgs.gov/data/comcat/data-availability.php">this catalog is not complete</a> and should not be treated as such. Incomplete data are a universal challenge in earthquake modeling and in data science more broadly.</p>
 
     <p>In this case, missing data can be categorized in two ways: 1) missing due to recency and 2) missing due to detective ability.</p>
 
@@ -72,7 +72,7 @@
         </div>
     </div>
 
-    <p>Missing data due to recency make real-time predictive models difficult to deploy. If we were to update a predictive model on current events, our model would get the mistaken impression that fewer earthquakes had occured recently than have actually taken place. We could only base predictions on events which USGS can reliably publish on a timely basis for each region on Earth.</p>
+    <p>Missing data due to recency make real-time predictive models difficult to deploy. If we were to update a predictive model on current events, our model would get the mistaken impression that fewer earthquakes had occured recently than have actually taken place. We could only base predictions on events which the USGS can reliably publish on a timely basis for each region on Earth.</p>
 
     <p>We did not employ a rigorous solution to this category of missing data. We limited our analysis to events prior to 2019 in hopes that the majority of earthquake events had already been logged.</p>
 
@@ -106,7 +106,7 @@
 
     <h3>The Spatial Dimension</h3>
 
-    <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that USGS both detects more earthquakes in the United States and also publishes those events more rapidly.</p>
+    <p>For each previously mentioned data quality concern, one must also consider regional characteristics. For example, we expect that the USGS both detects more earthquakes in the United States and also publishes those events more rapidly.</p>
 
     <p>There are a number of approaches to this dimension of our analysis. Ideally, we would access a database containing precise coordinate locations and time periods of all seismic sensor stations on earth. Alternatively, we would find existing seismic region definitions based on observed seismic properties.</p>
 
@@ -142,7 +142,7 @@
 
     <p>To get our baseline predictive model, for each cluster we counted the number of weeks in which a 5.5+ magnitude event occured. We then divided this by the total number of weeks in our dataset. This gives a percent likelihood of 5.5+ magnitude earthquake for each node. A cluster in which 15 weeks contained magnitude 5.5+ earthquakes corresponds to roughly a 1% chance of 5.5+ magnitude earthquake in any given week.</p>
     
-    <p>This baseline relies on the assumption that USGS has accurately cataloged all 5.5+ magnitude earthquakes since 1989.</p>
+    <p>This baseline relies on the assumption that the USGS has accurately cataloged all 5.5+ magnitude earthquakes since 1989.</p>
 
     <p>Finally, we re-added the nodes in which no 5.5+ magnitude earthquakes have occured and assigned 0% likelihood to those nodes. This gave us a complete grid of nodes over the Earth along with their earthquake likelihood values. We used these values to produce the final contour map presented above.</p>
 
