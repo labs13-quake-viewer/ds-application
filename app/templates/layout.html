@@ -16,6 +16,8 @@
   </head>
   <body style="overflow-y: scroll;" class="bg-dark">
     {% include 'includes/_navbar.html' %}
+    {% block precontainer %}
+    {% endblock precontainer %}
     <div class="container">
       {% block body %}
       {% endblock body %}
