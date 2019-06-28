@@ -114,8 +114,12 @@ td
     <h1 class="display-4" style="margin-top: 10px;">Financial Markets Impact Models</h1>
     <p></p>
     <p>The modeling results presented here indicate that - at least for Gold and the S&P 500 - the
-            occurrence of earthquakes is a poor predictor of the direction of financial markets. The
-            best result obtained was 9.21% accuracy; this was using an
+            occurrence of earthquakes is a poor predictor of the direction of financial markets. 
+            Of primary importance is the measure known as accuracy: it measures how well a model
+            performs when compared to a set of actual outcomes - values unknown to the model when 
+            it was devised. The model score is a measure of the internal efficacy of the model and 
+            is included here for completeness.
+            The best result obtained was 9.21% accuracy; this was using an
             <a href="https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/">XGBoost</a>
             model for Gold prices after a 6.7 earthquake. From there things get worse:  
             <a href="https://towardsdatascience.com/an-implementation-and-explanation-of-the-random-forest-in-python-77bf308a9b76">Random Forest Regressor</a>
