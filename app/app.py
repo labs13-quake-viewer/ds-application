@@ -40,6 +40,7 @@ def create_app():
     def marketmodels():
         return render_template('marketmodels.html')
 
+    # Danielle
     @app.route('/damage')
     def damage():
         return render_template('damage.html')
@@ -48,6 +49,11 @@ def create_app():
     def tsunami():
         return render_template('tsunami.html')
 
+    @app.route('/damagecost')
+    def damagecost():
+        return render_template('damagecost.html')
+
+    # Shilpa
     @app.route('/us_events')
     def us_events():
         return render_template('us_events.html')
@@ -55,6 +61,11 @@ def create_app():
     @app.route('/predictions')
     def predictions():
         return render_template('predictions.html')
+
+    @app.route('/activityanalysis')
+    def activityanalysis():
+        return render_template('activityanalysis.html')
+
 
     @app.route('/map', methods=['GET', 'POST'])
     def map():
