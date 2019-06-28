@@ -17,6 +17,21 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Events
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <p class="dropdown-item" style="font-weight:800; margin: 0;">World Events</p>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ url_for('map') }}">Event Map</a>
+              <div class="dropdown-divider"></div>
+              <p class="dropdown-item" style="font-weight:800; margin: 0;">US Events</p>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ url_for('us_events') }}">Events</a>
+              <a class="dropdown-item" href="{{ url_for('activityanalysis') }}">Analysis</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Impact
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -33,21 +48,6 @@
             <a class="dropdown-item" href="/intermarket">Intermarket Analysis</a>
             <a class="dropdown-item" href="/marketmodels">Impact Models</a>
           </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Events
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <p class="dropdown-item" style="font-weight:800; margin: 0;">World Events</p>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url_for('map') }}">Event Map</a>
-              <div class="dropdown-divider"></div>
-              <p class="dropdown-item" style="font-weight:800; margin: 0;">US Events</p>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ url_for('us_events') }}">Events</a>
-              <a class="dropdown-item" href="{{ url_for('activityanalysis') }}">Analysis</a>
-            </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" style="cursor: pointer;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
