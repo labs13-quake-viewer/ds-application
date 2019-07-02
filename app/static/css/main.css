@@ -95,13 +95,23 @@ div.topics-grid {
   margin: auto;
 }
 
-h2.topics-header {
-  color: #C5BD99;
+@media (max-width: 800px) { 
+  div.topics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  img.topics-icon {
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+  h2.topics-header {
+    text-align: center;
+  }
 }
 
-img.topics-icon {
-  /* width: 200%;
-  height: 200%; */
+h2.topics-header {
+  color: #C5BD99;
 }
 
 section.topics {
@@ -115,11 +125,29 @@ div.team-grid {
   grid-gap: 2em;
 }
 
+@media (max-width: 800px) { 
+  div.team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) { 
+  div.team-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 div.icon-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1em;
 }
+
+/* @media (max-width: 500px) {
+  div.icon-container {
+    grid-template-columns: 1fr 1fr;
+  }
+} */
 
 h2.team-header {
   text-align: center;
