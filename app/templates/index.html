@@ -1,4 +1,7 @@
 {% extends 'layout.html' %}
+{% block headers %}
+<title>QuakeSpect</title>
+{% endblock headers %}
 {% block precontainer %}
 <section class="cta">
   <div class="container cta-map-container">
@@ -15,9 +18,9 @@
 <section class="topics">
   <div class="topics-grid">
       <img src="{{ url_for('static', filename='images/icons/events.svg') }}" alt="" class="topics-icon">
-      <h2 class="topics-header">Explore earthquake events through interactive maps, and data visualizations. View statistics brought to life covering global, and US datasets.</h2>
+      <h2 class="topics-header">Explore earthquake events through interactive maps and data visualizations. View statistics brought to life covering global and US datasets.</h2>
       <img src="{{ url_for('static', filename='images/icons/property.svg') }}" alt="" class="topics-icon">
-      <h2 class="topics-header">See the impact earthquakes and the resulting tsunamis have on property, and communities.</h2>
+      <h2 class="topics-header">See the impact earthquakes and the resulting tsunamis have on property and communities.</h2>
       <img src="{{ url_for('static', filename='images/icons/financial.svg') }}" alt="" class="topics-icon">
       <h2 class="topics-header">Find out if earthquake events can be used to predict fluctuations in financial markets.</h2>
       <img src="{{ url_for('static', filename='images/icons/prediction.svg') }}" alt="" class="topics-icon">
@@ -33,9 +36,11 @@
           <h5 class="card-title">Chris Luedtke</h5>
           <div class="icon-container">
             <a href="https://github.com/chrisluedtke">
-            <img src="{{ url_for('static', filename='images/icons/gh.svg') }}" class="card-img-top" alt="...">
+                <img src="{{ url_for('static', filename='images/icons/gh.svg') }}" class="card-img-top" alt="...">
             </a>
-            <img src="{{ url_for('static', filename='images/icons/li.svg') }}" class="card-img-top" alt="...">
+            <a href="https://www.linkedin.com/in/c-luedtke/">
+                <img src="{{ url_for('static', filename='images/icons/li.svg') }}" class="card-img-top" alt="...">
+            </a>
           </div>
         </div>
       </div>
@@ -59,9 +64,11 @@
         <h5 class="card-title">Winston Lee</h5>
         <div class="icon-container">
             <a href="https://github.com/wel51x">
-            <img src="{{ url_for('static', filename='images/icons/gh.svg') }}" class="card-img-top" alt="...">
+                <img src="{{ url_for('static', filename='images/icons/gh.svg') }}" class="card-img-top" alt="...">
             </a>
-            <img src="{{ url_for('static', filename='images/icons/li.svg') }}" class="card-img-top" alt="...">
+            <a href="https://www.linkedin.com/in/winstonedwardlee/">
+                <img src="{{ url_for('static', filename='images/icons/li.svg') }}" class="card-img-top" alt="...">
+            </a>
           </div>
         </div>
       </div>
